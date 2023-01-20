@@ -15,7 +15,7 @@ Customer is able to:
 
 ## Frontend
 
-HTML: index.html__
+HTML: index.html\
 CSS: CSS/sheet.css
 
 ## Backend
