@@ -8,12 +8,13 @@ const BOT_MSGS = [
   "I like to play games... But I don't know how to play!",
   "Sorry if my answers are not relevant. :))",
   "I feel sleepy! :("
-];  
-const BOT_STARTING_MSG_1 = [
-  "Willkommen zu unserer Kundenservice! Ich bin Bryan, Dein intelligente Bot. Was kann ich Dir dabei helfen?",
-  "Willkommen zu unserer Kundenservice! Ich bin Sean, Dein intelligente Bot. Was kann ich Dir dabei helfen?",
-  "Willkommen zu unserer Kundenservice! Ich bin Jimmy, Dein intelligente Bot. Was kann ich Dir dabei helfen?"
-]
+];
+
+// const BOT_STARTING_MSG_1 = [
+//   "Willkommen zu unserer Kundenservice! Ich bin Bryan, Dein intelligente Bot. Was kann ich Dir dabei helfen?",
+//   "Willkommen zu unserer Kundenservice! Ich bin Sean, Dein intelligente Bot. Was kann ich Dir dabei helfen?",
+//   "Willkommen zu unserer Kundenservice! Ich bin Jimmy, Dein intelligente Bot. Was kann ich Dir dabei helfen?"
+// ]
 
 // Icons made by Freepik from www.flaticon.com
 const BOT_IMG = "https://thumbs.dreamstime.com/b/netter-l%C3%A4chelnder-lustiger-roboterchat-bot-105585370.jpg";
@@ -21,9 +22,9 @@ const PERSON_IMG = "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/262576088
 const BOT_NAME_LIST = [
   "Bryan",
   "Sean",
-  "Jimmy"
+  "Jimmy",
 ];
-const r = random(0, 3);
+const r = random(0, BOT_NAME_LIST.length);
 const BOT_NAME = BOT_NAME_LIST[r]
 const PERSON_NAME = "YOU";
 botStart();
@@ -63,9 +64,15 @@ function appendMessage(name, img, side, text) {
 
 function botStart() {
   setTimeout(() => {
-    const BOT_STARTING_MSG = `Willkommen zu unserer Kundenservice! Ich bin ${BOT_NAME}, Dein intelligente Bot. Was kann ich Dir dabei helfen?`
+    const BOT_STARTING_MSG = `Willkommen zu München! Ich bin ${BOT_NAME}, Dein intelligente Reisepartner 🙆‍♂️🙆‍♂️`
     appendMessage(BOT_NAME, BOT_IMG, "left", BOT_STARTING_MSG);
-  }, 0);
+  }, 1000);
+  setTimeout(() => {
+    const BOT_STARTING_MSG_2 = "Ich bin gut darin, Reisenden einige berühmte Restaurants 🍽 \
+    und Sehenswürdigkeiten 🚩 zu empfehlen!\n\
+    Was kann ich Dir dabei helfen?"
+    appendMessage(BOT_NAME, BOT_IMG, "left", BOT_STARTING_MSG_2);
+  }, 2000);
 }
 
 function botResponse() {
@@ -82,11 +89,18 @@ function get(selector, root = document) {
   return root.querySelector(selector);
 }
 
-function formatDate(date) {
-  const h = "0" + date.getHours();
-  const m = "0" + date.getMinutes();
+// function formatDate(date) {
+//   const h = "0" + date.getHours();
+//   const m = "0" + date.getMinutes();
 
-  return `${h.slice(-2)}:${m.slice(-2)}`;
+//   return `${h.slice(-2)}:${m.slice(-2)}`;
+// }
+
+function formatDate(date) {
+  const h = date.getHours();
+  const m = date.getMinutes();
+
+  return `${h}:${m}`;
 }
 
 function random(min, max) {

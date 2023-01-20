@@ -156,7 +156,8 @@ body {
 }
 
 .msger-chat {
-  background-image: url("../Media/sunset.jpg");
+  /* background-image: url("../Media/sunset.jpg"); */
+  background-image: url(https://wallpapercave.com/wp/wp1858341.jpg);
   background-position: center;
   background-size: cover;
 }
