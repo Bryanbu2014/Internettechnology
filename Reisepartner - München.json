@@ -1,0 +1,223 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "ablehnen",
+      "features": []
+    },
+    {
+      "name": "None",
+      "features": []
+    },
+    {
+      "name": "restaurant-nachfragen",
+      "features": []
+    },
+    {
+      "name": "sehenswürdigkeit-nachfragen",
+      "features": []
+    },
+    {
+      "name": "zustimmen",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [],
+  "prebuiltEntities": [],
+  "utterances": [
+    {
+      "text": "9",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "absolut nicht",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "gar nicht",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "gib mir ein paar empfehlungen von restaurant",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "ich glaube nicht",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "ich möchte ins restaurant gehen",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "ich suche nach einem gemütlichen cafe",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "ja",
+      "intent": "zustimmen",
+      "entities": []
+    },
+    {
+      "text": "jap",
+      "intent": "zustimmen",
+      "entities": []
+    },
+    {
+      "text": "jawohl",
+      "intent": "zustimmen",
+      "entities": []
+    },
+    {
+      "text": "leider",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "n",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "ne",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nee",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nein",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nein danke",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nicht",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nie",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "no",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nö",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nope",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "nu",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "restarant",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "restaurant",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "restaurant bitte",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "restauratn",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "sehenswürdigkeit",
+      "intent": "sehenswürdigkeit-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "touristenattraktion",
+      "intent": "sehenswürdigkeit-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "überhaupt nicht",
+      "intent": "ablehnen",
+      "entities": []
+    },
+    {
+      "text": "welche sehenswürdigkeit ist in der nähe",
+      "intent": "sehenswürdigkeit-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "wir gehen ins restaurant",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "wir möchte ins restaurant gehen",
+      "intent": "restaurant-nachfragen",
+      "entities": []
+    },
+    {
+      "text": "y",
+      "intent": "zustimmen",
+      "entities": []
+    },
+    {
+      "text": "ya",
+      "intent": "zustimmen",
+      "entities": []
+    },
+    {
+      "text": "yeah",
+      "intent": "zustimmen",
+      "entities": []
+    },
+    {
+      "text": "yes",
+      "intent": "zustimmen",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "Reisepartner - München",
+  "desc": "",
+  "culture": "de-de",
+  "tokenizerVersion": "1.0.2",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}
