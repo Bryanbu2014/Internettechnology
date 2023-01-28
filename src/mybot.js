@@ -4,7 +4,7 @@ const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 const BOT_IMG = "https://thumbs.dreamstime.com/b/netter-l%C3%A4chelnder-lustiger-roboterchat-bot-105585370.jpg";
-const PERSON_IMG = "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/262576088_439193947781320_3937104719251372821_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=rd6GB7LnRikAX8hmcIn&_nc_ht=scontent-muc2-1.xx&oh=00_AfDTCNYHX3lnUQOwWhikzBYM7ktJl2cnUpzXJO5GR-FdtQ&oe=63CE9352";
+const PERSON_IMG = "https://i.pinimg.com/550x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg";
 const BOT_NAME_LIST = [
   "Bryan",
   "Sean",
@@ -30,6 +30,8 @@ const WHAT_ELSE_LIST = [
   "Suchst Du noch andere Empfehlung?"
 ]
 botStart()
+var endMsg = true;
+
 
 async function predict(){
   var endpointKey = "c071c67f69ab46d1932b1469ca809303";
@@ -53,11 +55,13 @@ msgerForm.addEventListener("submit", event => {
   const msgText = msgerInput.value;
   if (!msgText) return;
 
-  appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
-  userInput = msgerInput.value;
-  msgerInput.value = "";
-
-  botResponsePrint();
+  if (endMsg) {
+    appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+    userInput = msgerInput.value;
+    msgerInput.value = "";
+    botResponsePrint();
+  }
+  
 });
 
 function appendMessage(name, img, side, text) {
@@ -339,16 +343,13 @@ function byebye() {
   const byeHtml = `
     <h1 style="font-size: 15px;
     text-align: center;
-    padding: 15px;
-    background: white;
-    padding: 10px;
-    border: none;
-    border-radius: 50px;">
-    Dein Reisepartner hat verlassen</h1>
+    padding: 10px;">
+    Dein Bot hat verlassen</h1>
   `
   setTimeout(() => {
     msgerChat.insertAdjacentHTML("afterend", byeHtml);
     msgerChat.scrollTop += 500;
+    endMsg = false
   }, 1500)
-  return NONE
+  return endMsg, NONE
 }
