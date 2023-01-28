@@ -95851,6 +95851,29 @@ const r = random(0, BOT_NAME_LIST.length);
 const BOT_NAME = BOT_NAME_LIST[r]
 const PERSON_NAME = "YOU";
 var userInput;
+const RESTAURANT_INFO = {
+  "restaurant": [
+    {
+      "name": "Görreshof Wirtshaus",
+      "address": "A.Görreshof Wirtshaus",
+      "contact number": "C.Görreshof Wirtshaus",
+      "menu link": "www.Görreshof Wirtshaus.com"
+    },
+
+    {
+      "name": "Münchner Stubn",
+      "address": "A.Münchner Stubn",
+      "contact number": "C.Münchner Stubn",
+      "menu link": "www.Münchner Stubn.com"
+    },
+    {
+      "name": "Wirtshaus in der Au",
+      "address": "A.Wirtshaus in der Au",
+      "contact number": "C.Wirtshaus in der Au",
+      "menu link": "www.Wirtshaus in der Au.com"
+    }
+  ]
+}
 botStart();
 
 async function predict(){
@@ -95903,9 +95926,9 @@ function appendMessage(name, img, side, text) {
   msgerChat.scrollTop += 500;
 }
 
-function appendMessageRestaurantNachfragen(name, img, side) {
+function appendMessageRestaurantNachfragen(name, img, RESTAURANT_INFO) {
   const msgHTML = `
-    <div class="msg ${side}-msg">
+    <div class="msg left-msg">
       <div class="msg-img" style="background-image: url(${img})"></div>
 
       <div class="msg-bubble">
@@ -95916,11 +95939,11 @@ function appendMessageRestaurantNachfragen(name, img, side) {
 
         <div class="msg-text">
           Hier gibt es einige Restaurants 😊 <br>
-          Bitte die Name des Restaurants auswählen 😊 <br>
+          Bitte die Name des Restaurants eingeben, für das Du interessiert bist 😊 <br>
           <br>
-          1. Görreshof Wirtschaus <br>
-          2. Münchner Stubn <br>
-          3. Wirtshaus in der Au
+          1. ${RESTAURANT_INFO.restaurant[0].name} <br>
+          2. ${RESTAURANT_INFO.restaurant[1].name} <br>
+          3. ${RESTAURANT_INFO.restaurant[2].name}
         </div>
       </div>
     </div>
@@ -95929,6 +95952,54 @@ function appendMessageRestaurantNachfragen(name, img, side) {
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
   return NONE;
+}
+
+function appendMessageRestaurantWaehlen(name, img, reply, RESTAURANT_INFO) {
+  var x = true
+  var i = 0
+  while (x) {
+    if (Object.keys(reply.prediction.entities)[0] == RESTAURANT_INFO.restaurant[i].name) {
+      x = false
+      break;
+    } else {
+      i++
+    }
+  }
+  const msgHTML = `
+    <div class="msg left-msg">
+      <div class="msg-img" style="background-image: url(${img})"></div>
+
+      <div class="msg-bubble">
+        <div class="msg-info">
+          <div class="msg-info-name">${name}</div>
+          <div class="msg-info-time">${formatDate(new Date())}</div>
+        </div>
+
+        <div class="msg-text">
+          Das klingt sehr gut! Du hast <b>${Object.keys(reply.prediction.entities)[0]}</b> ausgewählt 👍 <br>
+          Darunter ist die Information über <b>${Object.keys(reply.prediction.entities)[0]}</b> 👇<br>
+          <br>
+          <b>Name</b> ${RESTAURANT_INFO.restaurant[i].name}<br>
+          <b>Addresse</b> ${RESTAURANT_INFO.restaurant[i].address}<br>
+          <b>Kontakt</b> ${RESTAURANT_INFO.restaurant[i]["contact number"]}<br>
+          <b>Menu Link</b> ${RESTAURANT_INFO.restaurant[i]["menu link"]}<br>
+          <b>Insert Picture</b><br>
+        </div>
+      </div>
+    </div>
+  `;
+
+  function inerFunction() {
+    msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+    msgerChat.scrollTop += 500;
+    return NONE;
+  }
+
+  if (Object.keys(reply.prediction.entities)[0] != undefined) {
+    inerFunction()
+  } else {
+    return NONE;
+  }
 }
 
 function botStart() {
@@ -95950,7 +96021,7 @@ function get(selector, root = document) {
 }
 
 function ansGenerator(reply) {
-  var ans = "Fml";
+  var ans;
   switch (reply.prediction.topIntent) {
     case "None":
       ans = fallBackMessage();
@@ -95961,10 +96032,10 @@ function ansGenerator(reply) {
       break;
     case "restaurant-nachfragen":
       // ans = "I found a bug"
-      appendMessageRestaurantNachfragen(BOT_NAME, BOT_IMG, "left");
+      appendMessageRestaurantNachfragen(BOT_NAME, BOT_IMG, RESTAURANT_INFO);
       break;
     case "restaurant-wählen":
-      ans = "Hier ist die Name von dem ausgewählt Restaurant"
+      appendMessageRestaurantWaehlen(BOT_NAME, BOT_IMG, reply, RESTAURANT_INFO);
       break;
     case "sehenswürdigkeit-nachfragen":
       ans = "Hier ist ein paar Sehenswürdigkeiten zu empfehlen"
@@ -95977,6 +96048,9 @@ function ansGenerator(reply) {
       break;
     case "gruss":
       ans = helloMessage();
+      break;
+    case "anderer-ort":
+      ans = "Es tut mir so leid, dass ich immer noch auf dem Weg bin, besser zu werden."
       break;
   }
   return ans;

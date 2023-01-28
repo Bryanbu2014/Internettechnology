@@ -9,7 +9,7 @@ async function predict(){
     var endpointKey = "c071c67f69ab46d1932b1469ca809303";
     var endpoint = "https://internettechnology-psta.cognitiveservices.azure.com";
     var appId = "5fccac12-5e0b-4cd5-b716-371b00ba108c";
-    var utterance = "walao eh";
+    var utterance = "Wirtshaus in der Au";
     var queryParams = {
         "show-all-intents": true,
         "verbose":  true,
@@ -21,38 +21,50 @@ async function predict(){
     return JSON.parse(luisReply)
   }
 
-function ansGenerator(reply) {
-  var ans = "Fml"
-  switch (reply.prediction.topIntent) {
-    case "None":
-      ans = fallBackMessage();
-      break;
-    case "restaurant-nachfragen":
-      ans = "Hier ist ein paar Restaurants zu empfehlen"
-      break;
-    case "restaurant-wählen":
-      ans = "Hier ist die Name von dem ausgewählt Restaurant"
-      break;
-    case "sehenswürdigkeit-nachfragen":
-      ans = "Hier ist ein paar Sehenswürdigkeiten zu empfehlen"
-      break;
-    case "zustimmen":
-      ans = "Ja"
-      break;
-    case "ablehnen":
-      ans = "Nein"
-      break;
+  function ansGenerator(reply) {
+    var ans = "Fml";
+    switch (reply.prediction.topIntent) {
+      case "None":
+        ans = fallBackMessage();
+        setTimeout(() => {
+          const TRY_AGAIN_MESSAGE = `Ich habe einige wunderbare Restaurants bzw. Touristenattraktionen zu empfehlen. Was soll ich Dir zeigen?`
+          appendMessage(BOT_NAME, BOT_IMG, "left", TRY_AGAIN_MESSAGE);
+        }, 1000);
+        break;
+      case "restaurant-nachfragen":
+        // ans = "I found a bug"
+        appendMessageRestaurantNachfragen(BOT_NAME, BOT_IMG);
+        break;
+      case "restaurant-wählen":
+        ans = `Das klingt gut! Du hast ${reply.prediction.entities[Object.keys(reply.prediction.entities)[0]]} gewählt!` 
+        break;
+      case "sehenswürdigkeit-nachfragen":
+        ans = "Hier ist ein paar Sehenswürdigkeiten zu empfehlen"
+        break;
+      case "zustimmen":
+        ans = "Ja"
+        break;
+      case "ablehnen":
+        ans = "Nein"
+        break;
+      case "gruss":
+        ans = helloMessage();
+        break;
+      case "anderer-ort":
+        ans = "Es tut mir so leid, dass ich immer noch auf dem Weg bin, besser zu werden."
+        break;
+    }
+    return ans;
   }
-  return ans;
-}
 
 function botResponsePrint() {
   var reply;
   predict().then(function(result){
     reply = result})
   setTimeout(() => {
-    console.log(ansGenerator(reply))
+    console.log(Object.keys(reply.prediction.entities))
     // appendMessage(BOT_NAME, BOT_IMG, "left", ansGenerator(reply))
+    console.log(ansGenerator(reply))
   }, 1300);
 }
 
@@ -65,3 +77,28 @@ function random(min, max) {
   }
 
 botResponsePrint()
+
+
+const RESTAURANT_INFO = {
+  "restaurant": [
+    {
+      "name": "Görreshof Wirtshaus",
+      "address": "A.Görreshof Wirtshaus",
+      "contact number": "C.Görreshof Wirtshaus",
+      "menu link": "www.Görreshof Wirtshaus.com"
+    },
+
+    {
+      "name": "Münchner Stubn",
+      "address": "A.Münchner Stubn",
+      "contact number": "C.Münchner Stubn",
+      "menu link": "www.Münchner Stubn.com"
+    },
+    {
+      "name": "Görreshof Wirtshaus",
+      "address": "A.Wirtshaus in der Au",
+      "contact number": "C.Wirtshaus in der Au",
+      "menu link": "www.Wirtshaus in der Au.com"
+    }
+  ]
+}
