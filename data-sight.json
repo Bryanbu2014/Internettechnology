@@ -1,0 +1,26 @@
+{"sight": [
+    {
+      "name": "Marienplatz",
+      "address": "Marienplatz, 80331 München",
+      "opening hour": "24/7",
+      "contact number": "<i>Nicht Verfügbar</i>",
+      "entry price": "Frei",
+      "image link": "https://upload.wikimedia.org/wikipedia/commons/6/62/Neues_Rathaus_und_Marienplatz_M%C3%BCnchen.jpg"
+    },
+    {
+      "name": "Englischer Garten",
+      "address": "English Garden, München",
+      "opening hour": "Täglich 1000 Uhr - 0100 Uhr",
+      "contact number": "089 38666390",
+      "entry price": "Frei",
+      "image link": "https://www.muenchen.de/sites/default/files/styles/3_2_w320/public/2022-07/monopteros-herbst-hp.jpg?h=8c5a01b2"
+    },
+    {
+      "name": "BMW Welt",
+      "address": "Am Olympiapark 1, 80809 München",
+      "opening hour": "Täglich 0730 Uhr - 0000 Uhr, Sonntag 0900 Uhr - 0000 Uhr",
+      "contact number": "089 125016001",
+      "entry price": "Frei",
+      "image link": "https://www.bmw-welt.com/content/dam/grpw/websites/bmw-welt_com/bmw_welt_neu/startseite/neu-2021/BMW_Welt_%C3%96ffnungszeiten_Welt.jpg.grp-transform/small/BMW_Welt_%C3%96ffnungszeiten_Welt.jpg"
+    }
+  ]}

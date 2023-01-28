@@ -1,0 +1,26 @@
+{"restaurant": [
+    {
+      "name": "Görreshof Wirtshaus",
+      "address": "Görresstraße 38, 80798 München",
+      "opening hour": "Täglich 1100 Uhr - 0000 Uhr",
+      "contact number": "089 20209550",
+      "menu link": "https://www.goerreshof.de/speisekarte-bayerisches-wirtshaus",
+      "image link": "https://assets.website-files.com/5f72d06444d2eae2972f14b2/632ab4d0530c57396652fbc4__DSC2773_1-2.jpg"
+    },
+    {
+      "name": "Münchner Stubn",
+      "address": "Bayerstraße 35, 80335 München",
+      "opening hour": "Täglich 1700 Uhr - 2300 Uhr, Samstag und Sonntag 1000 Uhr - 2300 Uhr",
+      "contact number": "089 551113330",
+      "menu link": "https://www.muenchner-stubn.de/de/speisen-getraenke/speisekarte",
+      "image link": "https://citytourcard-muenchen.com/wp-content/uploads/2020/03/Mu%CC%88nchner-Stubn-Hauptraum-540x400px.png"
+    },
+    {
+      "name": "Wirtshaus in der Au",
+      "address": "Lilienstraße 51, 81669 München",
+      "opening hour": "Täglich 1100 Uhr - 0000 Uhr",
+      "contact number": "089 4481400",
+      "menu link": "https://wirtshausinderau.de/essen-trinken/aktionskarte/",
+      "image link": "https://cdn.gastroguide.de/betrieb/8713/galerie/album/userphotos/5f02462221f2b.jpg"
+    }
+  ]}
