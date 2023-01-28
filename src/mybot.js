@@ -27,22 +27,22 @@ const RESTAURANT_INFO = {
   "restaurant": [
     {
       "name": "Görreshof Wirtshaus",
-      "address": "A.Görreshof Wirtshaus",
-      "contact number": "C.Görreshof Wirtshaus",
-      "menu link": "www.Görreshof Wirtshaus.com"
+      "address": "Görresstraße 38, 80798 München",
+      "contact number": "089 20209550",
+      "menu link": "https://www.goerreshof.de/speisekarte-bayerisches-wirtshaus"
     },
 
     {
       "name": "Münchner Stubn",
-      "address": "A.Münchner Stubn",
-      "contact number": "C.Münchner Stubn",
-      "menu link": "www.Münchner Stubn.com"
+      "address": "Bayerstraße 35, 80335 München",
+      "contact number": "089 551113330",
+      "menu link": "https://www.muenchner-stubn.de/de/speisen-getraenke/speisekarte"
     },
     {
       "name": "Wirtshaus in der Au",
-      "address": "A.Wirtshaus in der Au",
-      "contact number": "C.Wirtshaus in der Au",
-      "menu link": "www.Wirtshaus in der Au.com"
+      "address": "Lilienstraße 51, 81669 München",
+      "contact number": "089 4481400",
+      "menu link": "https://wirtshausinderau.de/essen-trinken/aktionskarte/"
     }
   ]
 }
@@ -154,7 +154,7 @@ function appendMessageRestaurantWaehlen(name, img, reply, RESTAURANT_INFO) {
           <b>Name</b> ${RESTAURANT_INFO.restaurant[i].name}<br>
           <b>Addresse</b> ${RESTAURANT_INFO.restaurant[i].address}<br>
           <b>Kontakt</b> ${RESTAURANT_INFO.restaurant[i]["contact number"]}<br>
-          <b>Menu Link</b> ${RESTAURANT_INFO.restaurant[i]["menu link"]}<br>
+          <b>Menu Link</b> <a href="${RESTAURANT_INFO.restaurant[i]["menu link"]}">${RESTAURANT_INFO.restaurant[i]["menu link"]}</a><br>
           <b>Insert Picture</b><br>
         </div>
       </div>
