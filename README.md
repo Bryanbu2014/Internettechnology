@@ -4,12 +4,11 @@ THD second semester artificial intelligence course subject, Internettechnology.
 
 # Project Description
 
-This project is to create a Chatbot for food delivery customer service.
+This project is to create a Chatbot that acts as your travel partner in Munich.
 Customer is able to:
 
-1. Track their food delivery status.
-2. Report for missing item.
-3. Request for a refund.
+1. Ask for restaurant recommendation.
+2. Ask for tourist attraction recommendation.
 
 # Main Files for this Chatbot Project
 
@@ -20,4 +19,4 @@ CSS: CSS/sheet.css
 
 ## Backend
 
-JS: mybot.js
+JS: src/mybot.js -> dist/bundle.js

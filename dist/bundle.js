@@ -39669,6 +39669,22 @@ module.exports={"restaurant": [
       "contact number": "089 4481400",
       "menu link": "https://wirtshausinderau.de/essen-trinken/aktionskarte/",
       "image link": "https://cdn.gastroguide.de/betrieb/8713/galerie/album/userphotos/5f02462221f2b.jpg"
+    },
+    {
+      "name": "Chois Hotpot und Lounge",
+      "address": "Tumblingerstraße 36, 80337 München",
+      "opening hour": "Täglich 1800 Uhr - 2300 Uhr, Samstag und Dienstag 1200 Uhr - 1500 Uhr, 1800 Uhr - 2300 Uhr",
+      "contact number": "+49 89 39290131",
+      "menu link": "https://leviee.de/restaurant/chois-hotpot-and-lounge",
+      "image link": "https://www.chois-hotpot.de/img/news/chois_news_09.jpg"
+    },
+    {
+      "name": "Atelier Gourmet",
+      "address": "Rablstraße 37, 81669 München",
+      "opening hour": "Täglich 1800 Uhr - 0000 Uhr, Sonntag geschlossen",
+      "contact number": "+49 89 487220",
+      "menu link": "https://www.ateliergourmet.de/speisekarte.pdf",
+      "image link": "https://media-cdn.tripadvisor.com/media/photo-s/1b/5f/a3/84/c-benjamin-monn.jpg"
     }
   ]}
 },{}],259:[function(require,module,exports){
@@ -39696,6 +39712,14 @@ module.exports={"sight": [
       "contact number": "089 125016001",
       "entry price": "Frei",
       "image link": "https://www.bmw-welt.com/content/dam/grpw/websites/bmw-welt_com/bmw_welt_neu/startseite/neu-2021/BMW_Welt_%C3%96ffnungszeiten_Welt.jpg.grp-transform/small/BMW_Welt_%C3%96ffnungszeiten_Welt.jpg"
+    },
+    {
+      "name": "Residenz München",
+      "address": "Residenzstraße 1, 80333 München",
+      "opening hour": "Täglich geöffnet",
+      "contact number": "+49 89 290671",
+      "entry price": "<a href=https://www.residenz-muenchen.de/deutsch/tourist/eintritt.htm>Klickst Du hier</a>",
+      "image link": "https://www.residenz-muenchen.de/bilder/background/festsaalbau.jpg"
     }
   ]}
 },{}],260:[function(require,module,exports){
@@ -95888,9 +95912,10 @@ const msgerChat = get(".msger-chat");
 const BOT_IMG = "https://thumbs.dreamstime.com/b/netter-l%C3%A4chelnder-lustiger-roboterchat-bot-105585370.jpg";
 const PERSON_IMG = "https://i.pinimg.com/550x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg";
 const BOT_NAME_LIST = [
-  "Bryan",
-  "Sean",
-  "Jimmy",
+  "Michael",
+  "Max",
+  "Susanne",
+  "Eva",
 ];
 const FALL_BACK_MESSAGES_LIST = [
   "Sorry, ich verstehe Dir nicht :( Bitte nochmals probieren",
@@ -95902,7 +95927,7 @@ const HELLO_MESSAGE_LIST = [
   "Servus! Willkommen zu München! Was kann ich dir helfen?",
 ]
 const BOT_NAME = BOT_NAME_LIST[random(0, BOT_NAME_LIST.length)]
-const PERSON_NAME = "YOU";
+const PERSON_NAME = "DU";
 var userInput;
 const RESTAURANT_INFO = require('../data-restaurant.json')
 const SIGHT_INFO = require('../data-sight.json')
@@ -96071,7 +96096,9 @@ function appendMessageRestaurantNachfragen(name, img, RESTAURANT_INFO) {
           <br>
           1. ${RESTAURANT_INFO.restaurant[0].name} <br>
           2. ${RESTAURANT_INFO.restaurant[1].name} <br>
-          3. ${RESTAURANT_INFO.restaurant[2].name}
+          3. ${RESTAURANT_INFO.restaurant[2].name} <br>
+          4. ${RESTAURANT_INFO.restaurant[3].name} <br>
+          5. ${RESTAURANT_INFO.restaurant[4].name}
         </div>
       </div>
     </div>
@@ -96149,7 +96176,8 @@ function appendMessageSightNachfragen(name, img, SIGHT_INFO) {
           <br>
           1. ${SIGHT_INFO.sight[0].name} <br>
           2. ${SIGHT_INFO.sight[1].name} <br>
-          3. ${SIGHT_INFO.sight[2].name}
+          3. ${SIGHT_INFO.sight[2].name} <br>
+          4. ${SIGHT_INFO.sight[3].name} 
         </div>
       </div>
     </div>

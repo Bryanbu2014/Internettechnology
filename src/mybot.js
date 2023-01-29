@@ -6,9 +6,10 @@ const msgerChat = get(".msger-chat");
 const BOT_IMG = "https://thumbs.dreamstime.com/b/netter-l%C3%A4chelnder-lustiger-roboterchat-bot-105585370.jpg";
 const PERSON_IMG = "https://i.pinimg.com/550x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg";
 const BOT_NAME_LIST = [
-  "Bryan",
-  "Sean",
-  "Jimmy",
+  "Michael",
+  "Max",
+  "Susanne",
+  "Eva",
 ];
 const FALL_BACK_MESSAGES_LIST = [
   "Sorry, ich verstehe Dir nicht :( Bitte nochmals probieren",
@@ -20,10 +21,10 @@ const HELLO_MESSAGE_LIST = [
   "Servus! Willkommen zu München! Was kann ich dir helfen?",
 ]
 const BOT_NAME = BOT_NAME_LIST[random(0, BOT_NAME_LIST.length)]
-const PERSON_NAME = "YOU";
+const PERSON_NAME = "DU";
 var userInput;
-const RESTAURANT_INFO = require('../data-restaurant.json')
-const SIGHT_INFO = require('../data-sight.json')
+const RESTAURANT_INFO = require('../database/data-restaurant.json')
+const SIGHT_INFO = require('../database/data-sight.json')
 const WHAT_ELSE_LIST = [
   "Was kann ich Dir noch Helfen?",
   "Willst Du noch was suchen?",
@@ -189,7 +190,9 @@ function appendMessageRestaurantNachfragen(name, img, RESTAURANT_INFO) {
           <br>
           1. ${RESTAURANT_INFO.restaurant[0].name} <br>
           2. ${RESTAURANT_INFO.restaurant[1].name} <br>
-          3. ${RESTAURANT_INFO.restaurant[2].name}
+          3. ${RESTAURANT_INFO.restaurant[2].name} <br>
+          4. ${RESTAURANT_INFO.restaurant[3].name} <br>
+          5. ${RESTAURANT_INFO.restaurant[4].name}
         </div>
       </div>
     </div>
@@ -267,7 +270,8 @@ function appendMessageSightNachfragen(name, img, SIGHT_INFO) {
           <br>
           1. ${SIGHT_INFO.sight[0].name} <br>
           2. ${SIGHT_INFO.sight[1].name} <br>
-          3. ${SIGHT_INFO.sight[2].name}
+          3. ${SIGHT_INFO.sight[2].name} <br>
+          4. ${SIGHT_INFO.sight[3].name} 
         </div>
       </div>
     </div>

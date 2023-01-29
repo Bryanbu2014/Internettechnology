@@ -22,5 +22,21 @@
       "contact number": "089 4481400",
       "menu link": "https://wirtshausinderau.de/essen-trinken/aktionskarte/",
       "image link": "https://cdn.gastroguide.de/betrieb/8713/galerie/album/userphotos/5f02462221f2b.jpg"
+    },
+    {
+      "name": "Chois Hotpot und Lounge",
+      "address": "Tumblingerstraße 36, 80337 München",
+      "opening hour": "Täglich 1800 Uhr - 2300 Uhr, Samstag und Dienstag 1200 Uhr - 1500 Uhr, 1800 Uhr - 2300 Uhr",
+      "contact number": "+49 89 39290131",
+      "menu link": "https://leviee.de/restaurant/chois-hotpot-and-lounge",
+      "image link": "https://www.chois-hotpot.de/img/news/chois_news_09.jpg"
+    },
+    {
+      "name": "Atelier Gourmet",
+      "address": "Rablstraße 37, 81669 München",
+      "opening hour": "Täglich 1800 Uhr - 0000 Uhr, Sonntag geschlossen",
+      "contact number": "+49 89 487220",
+      "menu link": "https://www.ateliergourmet.de/speisekarte.pdf",
+      "image link": "https://media-cdn.tripadvisor.com/media/photo-s/1b/5f/a3/84/c-benjamin-monn.jpg"
     }
   ]}
