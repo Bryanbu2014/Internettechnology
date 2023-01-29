@@ -95929,8 +95929,8 @@ const HELLO_MESSAGE_LIST = [
 const BOT_NAME = BOT_NAME_LIST[random(0, BOT_NAME_LIST.length)]
 const PERSON_NAME = "DU";
 var userInput;
-const RESTAURANT_INFO = require('../data-restaurant.json')
-const SIGHT_INFO = require('../data-sight.json')
+const RESTAURANT_INFO = require('../database/data-restaurant.json')
+const SIGHT_INFO = require('../database/data-sight.json')
 const WHAT_ELSE_LIST = [
   "Was kann ich Dir noch Helfen?",
   "Willst Du noch was suchen?",
@@ -96044,7 +96044,8 @@ function ansGenerator(reply) {
       ans = helloMessage()
       break;
     case "anderer-ort":
-      ans = "Es tut mir so leid, dass ich immer noch auf dem Weg bin, besser zu werden."
+      ans = `Es tut mir so leid, dass ich ${userInput} in meinem Datenbank nicht finden kann. \
+      Ich bin noch auf dem weg, besser zu werden und zu erweitern. `
       break;
   }
   return ans;
@@ -96263,4 +96264,4 @@ function byebye() {
   }, 1500)
   return endMsg, NONE
 }
-},{"../data-restaurant.json":258,"../data-sight.json":259,"querystring":200,"request-promise":388}]},{},[444]);
+},{"../database/data-restaurant.json":258,"../database/data-sight.json":259,"querystring":200,"request-promise":388}]},{},[444]);

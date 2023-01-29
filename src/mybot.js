@@ -138,7 +138,8 @@ function ansGenerator(reply) {
       ans = helloMessage()
       break;
     case "anderer-ort":
-      ans = "Es tut mir so leid, dass ich immer noch auf dem Weg bin, besser zu werden."
+      ans = `Es tut mir so leid, dass ich ${userInput} in meinem Datenbank nicht finden kann. \
+      Ich bin noch auf dem weg, besser zu werden und zu erweitern. `
       break;
   }
   return ans;
