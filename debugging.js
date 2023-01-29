@@ -9,7 +9,7 @@ async function predict(){
     var endpointKey = "c071c67f69ab46d1932b1469ca809303";
     var endpoint = "https://internettechnology-psta.cognitiveservices.azure.com";
     var appId = "5fccac12-5e0b-4cd5-b716-371b00ba108c";
-    var utterance = "Wirtshaus in der Au";
+    var utterance = "gorreshof wirtshaus";
     var queryParams = {
         "show-all-intents": true,
         "verbose":  true,

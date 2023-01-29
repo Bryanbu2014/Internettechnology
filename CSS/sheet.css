@@ -161,3 +161,10 @@ body {
   background-size: cover;
 }
 
+button#reset {
+  font-size: 16px;
+  margin-left: 574px;
+  border-radius: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

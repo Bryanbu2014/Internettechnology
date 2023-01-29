@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reisepartner - München</title>
     <link rel="stylesheet" href="../CSS/sheet.css" />
+    <script type="text/javascript" src="../src/html-function.js"></script>
   </head>
   <body>
     <section class="msger">
       <header class="msger-header">
         <div class="msger-header-title">
           <i class="fas fa-comment-alt"></i> Reisepartner - München
+          <button id="reset" name="reset" onclick="onClick()">Neuladen</button>
         </div>
         <div class="msger-header-options">
           <span><i class="fas fa-cog"></i></span>
@@ -24,7 +26,7 @@
         </div>
         <p>&nbsp;</p>
       </main>
-      <form class="msger-inputarea">
+      <form class="msger-inputarea" id="msger-inputarea">
         <input
           type="text"
           class="msger-input"

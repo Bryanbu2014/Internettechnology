@@ -33,7 +33,10 @@ const WHAT_ELSE_LIST = [
 botStart()
 var endMsg = true;
 
-
+/**
+ * API calls and fetches a reply from Luis AI
+ * @returns JSON.parse(luisReply)
+ */
 async function predict(){
   var endpointKey = "c071c67f69ab46d1932b1469ca809303";
   var endpoint = "https://internettechnology-psta.cognitiveservices.azure.com";
@@ -65,6 +68,13 @@ msgerForm.addEventListener("submit", event => {
   
 });
 
+/**
+ * 
+ * @param {*} name Name of the speaker, in this case the bot / user
+ * @param {*} img Image of the speaker, in the case the bot / user
+ * @param {*} side Side of the message that is appended to the chat, bot on left, user on right
+ * @param {*} text Message from bot / user
+ */
 function appendMessage(name, img, side, text) {
 //     Simple solution for small apps
   const msgHTML = `
@@ -86,6 +96,9 @@ function appendMessage(name, img, side, text) {
   msgerChat.scrollTop += 500;
 }
 
+/**
+ * Bot starts the conversation by greeting
+ */
 function botStart() {
   setTimeout(() => {
     const BOT_STARTING_MSG = `Willkommen zu München! Ich bin ${BOT_NAME}, Dein intelligente Reisepartner 🙆‍♂️🙆‍♂️`
@@ -104,15 +117,17 @@ function get(selector, root = document) {
   return root.querySelector(selector);
 }
 
+/**
+ * 
+ * @param {*} reply reply from Luis AI
+ * @returns answer that should be replied by the bot based on different cases (intents)
+ */
 function ansGenerator(reply) {
   var ans;
   switch (reply.prediction.topIntent) {
     case "None":
       ans = fallBackMessage();
-      setTimeout(() => {
-        const TRY_AGAIN_MESSAGE = `Ich habe einige wunderbare Restaurants bzw. Touristenattraktionen zu empfehlen. Was soll ich Dir zeigen?`
-        appendMessage(BOT_NAME, BOT_IMG, "left", TRY_AGAIN_MESSAGE);
-      }, 1000);
+      reAsk();
       break;
     case "restaurant-nachfragen":
       // ans = "I found a bug"
@@ -138,13 +153,17 @@ function ansGenerator(reply) {
       ans = helloMessage()
       break;
     case "anderer-ort":
-      ans = `Es tut mir so leid, dass ich ${userInput} in meinem Datenbank nicht finden kann. \
+      ans = `Es tut mir so leid, dass ich Deinen genannten Ort in meinem Datenbank nicht finden kann. \
       Ich bin noch auf dem weg, besser zu werden und zu erweitern. `
+      reAsk();
       break;
   }
   return ans;
 }
 
+/**
+ * Print out the reply from Bot
+ */
 function botResponsePrint() {
   var reply;
   predict().then(function(result){
@@ -155,10 +174,18 @@ function botResponsePrint() {
   }, 1300);
 }
 
+/**
+ * Generate a fallback message from the fallback message list if the bot doesn't understand what the user is saying
+ * @returns the chosen fallback message from the list
+ */
 function fallBackMessage() {
   return FALL_BACK_MESSAGES_LIST[random(0, (FALL_BACK_MESSAGES_LIST.length))]
 }
 
+/**
+ * Generate a fallback message from the fallback message list if the bot doesn't understand what the user is saying
+ * @returns the chosen hello message from the list
+ */
 function helloMessage() {
   return HELLO_MESSAGE_LIST[random(0, (HELLO_MESSAGE_LIST.length))]
 }
@@ -174,6 +201,13 @@ function random(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+/**
+ * Append message to the chat for the intent restaurant-nachfragen
+ * @param {*} name Name of the speaker, in this case the bot / user
+ * @param {*} img Image of the speaker, in the case the bot / user
+ * @param {*} RESTAURANT_INFO Information from data-restaurant.json file
+ * @returns NONE
+ */
 function appendMessageRestaurantNachfragen(name, img, RESTAURANT_INFO) {
   const msgHTML = `
     <div class="msg left-msg">
@@ -204,6 +238,14 @@ function appendMessageRestaurantNachfragen(name, img, RESTAURANT_INFO) {
   return NONE;
 }
 
+/**
+ * Append message to the chat for the intent restaurant-wählen
+ * @param {*} name Name of the speaker, in this case the bot / user
+ * @param {*} img Image of the speaker, in the case the bot / user
+ * @param {*} reply Reply from Luis AI
+ * @param {*} RESTAURANT_INFO Information from data-restaurant.json file
+ * @returns NONE
+ */
 function appendMessageRestaurantWaehlen(name, img, reply, RESTAURANT_INFO) {
   var x = true
   var i = 0
@@ -234,7 +276,7 @@ function appendMessageRestaurantWaehlen(name, img, reply, RESTAURANT_INFO) {
           <b>Öffnungszeiten</b> ${RESTAURANT_INFO.restaurant[i]["opening hour"]}<br>
           <b>Kontakt</b> ${RESTAURANT_INFO.restaurant[i]["contact number"]}<br>
           <b>Menu Link</b> <a href="${RESTAURANT_INFO.restaurant[i]["menu link"]}">${RESTAURANT_INFO.restaurant[i]["menu link"]}</a><br>
-          <img src="${RESTAURANT_INFO.restaurant[i]["image link"]}" alt="alternatetext" style="width:400px;height:300px;"><br>
+          <img src="${RESTAURANT_INFO.restaurant[i]["image link"]}" alt="Error Link here" style="width:400px;height:300px;"><br>
         </div>
       </div>
     </div>
@@ -267,7 +309,7 @@ function appendMessageSightNachfragen(name, img, SIGHT_INFO) {
 
         <div class="msg-text">
           Hier gibt es einige Sehenswürdigkeiten 😊 <br>
-          Bitte die Name des Restaurants eingeben, für das Du interessiert bist 😊 <br>
+          Bitte die Name der Sehenswürdigkeit eingeben, für das Du interessiert bist 😊 <br>
           <br>
           1. ${SIGHT_INFO.sight[0].name} <br>
           2. ${SIGHT_INFO.sight[1].name} <br>
@@ -358,3 +400,11 @@ function byebye() {
   }, 1500)
   return endMsg, NONE
 }
+
+function reAsk() {
+  setTimeout(() => {
+    const TRY_AGAIN_MESSAGE = `Ich habe einige wunderbare Restaurants bzw. Touristenattraktionen zu empfehlen. Was soll ich Dir zeigen?`
+    appendMessage(BOT_NAME, BOT_IMG, "left", TRY_AGAIN_MESSAGE);
+  }, 1000);
+}
+
