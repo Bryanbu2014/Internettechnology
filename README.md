@@ -1,16 +1,16 @@
-# Internettechnology
+# Internettechnologien
 
-THD second semester artificial intelligence course subject, Internettechnology.
+PStA von Internettechnologien, Fach von zweitem Semester des Studiengang Künstliche Intelligenz THD.
 
-# Project Description
+# Projektbeschreibung
 
-This project is to create a Chatbot that acts as your travel partner in Munich.
-Customer is able to:
+Dieses Projekt soll einen Chatbot erstellen.\
+Das Chatbot funktioniert als ein Reisepartner von dem Benutzer. Benutzer kann:
 
-1. Ask for restaurant recommendation.
-2. Ask for tourist attraction recommendation.
+1. Empfehlungen von Restaurant nachfragen.
+2. Empfehlungen von Sehenwürdigkeit bzw. Touristenattraktion nachfragen.
 
-# Main Files for this Chatbot Project
+# Hauptordner von der Projekt
 
 ## Frontend
 
@@ -20,3 +20,4 @@ CSS: CSS/sheet.css
 ## Backend
 
 JS: src/mybot.js -> dist/bundle.js
+Databse: database/data-restaurant.json und data-sight.json
