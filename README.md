@@ -14,7 +14,7 @@ Das Chatbot funktioniert als ein Reisepartner von dem Benutzer. Benutzer kann:
 
 ## Frontend
 
-HTML: index.html\
+HTML: HTML/index.html\
 CSS: CSS/sheet.css
 
 ## Backend
